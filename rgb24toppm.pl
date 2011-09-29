@@ -15,9 +15,9 @@ print $out "480 800\n";
 print $out "255\n";
 
 while(<$in>) {
-	next if $_ !~ /^0x/;
+	#next if $_ !~ /^0x/;
 	last if $_ =~ /^}/;
-	foreach(split /,/) {
+	foreach(split /\s*,\s*/) {
 		next if $_ !~ /0x([0-9a-fA-F][0-9a-fA-F])([0-9a-fA-F][0-9a-fA-F])([0-9a-fA-F][0-9a-fA-F])([0-9a-fA-F][0-9a-fA-F])/;
 		my $alpha = hex $1;
 		my $red = hex $2;
